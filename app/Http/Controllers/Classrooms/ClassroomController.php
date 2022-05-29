@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers\Classrooms;
 
 use App\Http\Controllers\Controller;
@@ -68,9 +69,12 @@ class ClassroomController extends Controller
 
     }
 
+
     /*
 
-     */
+
+    */
+
 
     /**
      * Display the specified resource.
@@ -114,9 +118,13 @@ class ClassroomController extends Controller
             ]);
             toastr()->success(trans('messages.Update'));
             return redirect()->route('Classrooms.index');
-        } catch (\Exception $e) {
+        }
+
+        catch
+        (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
 
     }
 
@@ -135,6 +143,7 @@ class ClassroomController extends Controller
 
     }
 
+
     public function delete_all(Request $request)
     {
         $delete_all_id = explode(",", $request->delete_all_id);
@@ -144,12 +153,16 @@ class ClassroomController extends Controller
         return redirect()->route('Classrooms.index');
     }
 
+
     public function Filter_Classes(Request $request)
     {
         $Grades = Grade::all();
-        $Search = Classroom::select('*')->where('Grade_id', '=', $request->Grade_id)->get();
-        return view('pages.My_Classes.My_Classes', compact('Grades'))->withDetails($Search);
+        $Search = Classroom::select('*')->where('Grade_id','=',$request->Grade_id)->get();
+        return view('pages.My_Classes.My_Classes',compact('Grades'))->withDetails($Search);
 
     }
 
+
 }
+
+?>
