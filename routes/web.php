@@ -70,6 +70,7 @@ Route::group(
         //==============================Students============================
         Route::group(['namespace' => 'Students'], function () {
             Route::resource('Students', 'StudentController');
+            Route::resource('online_classes', 'OnlineClasseController');
             Route::resource('Graduated', 'GraduatedController');
             Route::resource('Promotion', 'PromotionController');
             Route::resource('Fees_Invoices', 'FeesInvoicesController');
@@ -90,9 +91,13 @@ Route::group(
             Route::resource('subjects', 'SubjectController');
         });
 
-        //==============================Exams============================
-        Route::group(['namespace' => 'Exams'], function () {
-            Route::resource('Exams', 'ExamController');
+        //==============================Quizzes============================
+        Route::group(['namespace' => 'Quizzes'], function () {
+            Route::resource('Quizzes', 'QuizzController');
         });
 
+        //==============================questions============================
+        Route::group(['namespace' => 'questions'], function () {
+            Route::resource('questions', 'QuestionController');
+        });
     });
