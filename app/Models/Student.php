@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
 class Student extends Model
@@ -61,6 +61,13 @@ class Student extends Model
     public function myparent()
     {
         return $this->belongsTo('App\Models\My_Parent', 'parent_id');
+    }
+
+    // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي
+    public function student_account()
+    {
+        return $this->hasMany('App\Models\StudentAccount', 'student_id');
+
     }
 
 }
