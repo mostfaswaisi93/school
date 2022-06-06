@@ -17,7 +17,7 @@ class GraduatedController extends Controller
 
     public function index()
     {
-        return $this->Graduated->index();
+       return $this->Graduated->index();
     }
 
     public function create()
@@ -37,6 +37,6 @@ class GraduatedController extends Controller
 
     public function destroy(Request $request)
     {
-        return $this->Graduated->destroy($request);
+       return $this->Graduated->destroy($request);
     }
 }
