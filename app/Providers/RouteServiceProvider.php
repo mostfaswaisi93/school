@@ -20,6 +20,9 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'App\Http\Controllers';
 
     public const HOME = '/dashboard';
+    public const STUDENT = '/dashboard';
+    public const TEACHER = '/dashboard';
+    public const PARENT = '/dashboard';
 
     /**
      * The controller namespace for the application.

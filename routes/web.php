@@ -70,6 +70,8 @@ Route::group(
         //==============================Students============================
         Route::group(['namespace' => 'Students'], function () {
             Route::resource('Students', 'StudentController');
+            Route::get('/indirect', 'OnlineClasseController@indirectCreate')->name('indirect.create');
+            Route::post('/indirect', 'OnlineClasseController@storeIndirect')->name('indirect.store');
             Route::resource('online_classes', 'OnlineClasseController');
             Route::resource('Graduated', 'GraduatedController');
             Route::resource('Promotion', 'PromotionController');
@@ -79,6 +81,8 @@ Route::group(
             Route::resource('ProcessingFee', 'ProcessingFeeController');
             Route::resource('Payment_students', 'PaymentController');
             Route::resource('Attendance', 'AttendanceController');
+            Route::get('download_file/{filename}', 'LibraryController@downloadAttachment')->name('downloadAttachment');
+            Route::resource('library', 'LibraryController');
             Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
             Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
             Route::post('Upload_attachment', 'StudentController@Upload_attachment')->name('Upload_attachment');
@@ -100,4 +104,7 @@ Route::group(
         Route::group(['namespace' => 'questions'], function () {
             Route::resource('questions', 'QuestionController');
         });
+
+        //==============================Setting============================
+        Route::resource('settings', 'SettingController');
     });
