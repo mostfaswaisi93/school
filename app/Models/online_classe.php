@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class online_classe extends Model
 {
     use HasFactory;
-    //protected $guarded=[];
-    public $fillable = ['Grade_id', 'Classroom_id', 'section_id', 'user_id', 'meeting_id', 'topic', 'start_at', 'duration', 'password', 'start_url', 'join_url'];
+    //protected $guarded=[''];
+    public $fillable = ['integration', 'Grade_id', 'Classroom_id', 'section_id', 'user_id', 'meeting_id', 'topic', 'start_at', 'duration', 'password', 'start_url', 'join_url'];
 
     public function grade()
     {
