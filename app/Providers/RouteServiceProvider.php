@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
 
     public const HOME = '/dashboard';
     public const STUDENT = '/student/dashboard';
-    public const TEACHER = '/dashboard';
+    public const TEACHER = '/teacher/dashboard';
     public const PARENT = '/dashboard';
 
     /**
@@ -55,6 +55,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/student.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/teacher.php'));
         });
     }
 
