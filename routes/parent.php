@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:student'],
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:parent'],
     ], function () {
 
         //==============================dashboard============================
-        Route::get('/student/dashboard', function () {
-            return view('pages.Students.dashboard');
-        })->name('dashboard.Students');
+        Route::get('/parent/dashboard', function () {
+            return view('pages.parents.dashboard');
+        })->name('dashboard.parents');
 
         Route::group(['namespace' => 'Students\dashboard'], function () {
             Route::resource('student_exams', 'ExamsController');
